@@ -1,0 +1,7 @@
+[$Version]
+update_info=spectacle_clipboard.upd:clipboard-settings-change,spectacle_rememberregion.upd:spectacle-migrate-rememberregion
+
+[GuiConfig]
+captureMode=5
+cropRegion=602,519,352,148
+window-position=0,0
