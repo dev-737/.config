@@ -1,7 +1,7 @@
--- require('lsp_config')
 require('config')
 require('keybindings')
 require('packages')
+require('lsp_config')
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
   ensure_installed = { "c", "lua", "rust", "typescript" },
@@ -48,5 +48,6 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
+-- vim.opt.foldmethod = "expr"
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
