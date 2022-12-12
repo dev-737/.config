@@ -6,8 +6,11 @@ keymap('n', '<c-j>', '<c-w>j', opts)
 keymap('n', '<c-h>', '<c-w>h', opts)
 keymap('n', '<c-k>', '<c-w>k', opts)
 keymap('n', '<c-l>', '<c-w>l', opts)
-keymap('n', '<c-n>', ':Alpha<cr>', opts)
+keymap('n', '<c-a>', ':Alpha<cr>', opts)
 
+
+-- toggle filetree
+keymap('n', '<c-n>', ':NvimTreeFindFileToggle<cr>', opts)
 
 local function lspmap(key, map)
   keymap('n', key, map, opts)
