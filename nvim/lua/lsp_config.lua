@@ -1,27 +1,41 @@
 -- loading in mason
-local mason_status, mason = pcall(require, "mason")
+-- local mason_status, mason = pcall(require, "mason")
 
-if not mason_status then
-  return
-end
-
+-- if not mason_status then
+--  return
+-- end
+local mason = require("mason")
 mason.setup()
 
 -- loading in lsp installer
-local lsp_status, lsp = pcall(require, "mason-lspconfig")
+-- local lsp_status, lsp = pcall(require, "mason-lspconfig")
 
-if not lsp_status then
-  return
-end
-
+-- if not lsp_status then
+--  return
+-- end
+local lsp = require("mason-lspconfig")
 lsp.setup()
 
--- Set up nvim-cmp.
-local cmp_status, cmp = pcall(require, 'cmp')
+-- Set up lspconfig.
+-- local lspconfig_status, lspconfig = pcall(require, 'lspconfig')
 
-if not cmp_status then
-  return
-end
+-- if not lspconfig_status then
+--  return
+-- end
+
+local lspconfig = require("lspconfig")
+
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+lspconfig.tsserver.setup { capabilities = capabilities  }
+lspconfig.prismals.setup { capabilities = capabilities }
+lspconfig.sumneko_lua.setup {
+  capabilities = capabilities,
+  settings = { Lua = { diagnostics = { globals = { 'vim', 'use' } } } }
+}
+
+-- Set up nvim-cmp.
+local cmp = require('cmp')
+local lspkind = require('lspkind') -- vscode like icons
 
 cmp.setup({
     snippet = {
@@ -47,9 +61,15 @@ cmp.setup({
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
       { name = 'vsnip' },
-    }, {
       { name = 'buffer' },
-    })
+    }),
+    formatting = {
+      format = lspkind.cmp_format({
+        maxwidth = 50,
+        ellipsis_char = "...",
+      })
+    }
+
   })
 
   -- Set configuration for specific filetype.
@@ -78,19 +98,3 @@ cmp.setup({
       { name = 'cmdline' }
     })
   })
-
-
--- Set up lspconfig.
-local lspconfig_status, lspconfig = pcall(require, 'lspconfig')
-
-if not lspconfig_status then
-  return
-end
-
-
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-lspconfig.tsserver.setup { capabilities = capabilities }
-lspconfig.sumneko_lua.setup {
-  capabilities = capabilities,
-  settings = { Lua = { diagnostics = { globals = { 'vim', 'use' } } } }
-}
