@@ -1,8 +1,27 @@
-require("mason").setup()
-require("mason-lspconfig").setup()
+-- loading in mason
+local mason_status, mason = pcall(require, "mason")
+
+if not mason_status then
+  return
+end
+
+mason.setup()
+
+-- loading in lsp installer
+local lsp_status, lsp = pcall(require, "mason-lspconfig")
+
+if not lsp_status then
+  return
+end
+
+lsp.setup()
 
 -- Set up nvim-cmp.
-local cmp = require 'cmp'
+local cmp_status, cmp = pcall(require, 'cmp')
+
+if not cmp_status then
+  return
+end
 
 cmp.setup({
     snippet = {
@@ -60,10 +79,18 @@ cmp.setup({
     })
   })
 
+
 -- Set up lspconfig.
+local lspconfig_status, lspconfig = pcall(require, 'lspconfig')
+
+if not lspconfig_status then
+  return
+end
+
+
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-require("lspconfig").tsserver.setup { capabilities = capabilities }
-require("lspconfig").sumneko_lua.setup {
+lspconfig.tsserver.setup { capabilities = capabilities }
+lspconfig.sumneko_lua.setup {
   capabilities = capabilities,
   settings = { Lua = { diagnostics = { globals = { 'vim', 'use' } } } }
 }

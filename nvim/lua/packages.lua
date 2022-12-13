@@ -6,9 +6,17 @@ require('packer').startup(function()
     'goolord/alpha-nvim',
     requires = { 'nvim-tree/nvim-web-devicons' },
     config = function ()
-        require'alpha'.setup(require'alpha.themes.startify'.config)
+        require'alpha'.setup(require'alpha.themes.dashboard'.config)
     end
     }
+
+  -- fuzzy finder
+  use {
+    'nvim-telescope/telescope.nvim', branch = '0.1.x',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+
   use "williamboman/mason-lspconfig.nvim"
   use "williamboman/mason.nvim"
   use 'neovim/nvim-lspconfig'

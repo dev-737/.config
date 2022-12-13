@@ -1,4 +1,4 @@
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 keymap('n', '<c-s>', 'w<CR', {})
 keymap('i', '<c-s>', '<Esc>:w<CR>a', {})
 local opts = { noremap = true }
@@ -8,25 +8,36 @@ keymap('n', '<c-k>', '<c-w>k', opts)
 keymap('n', '<c-l>', '<c-w>l', opts)
 keymap('n', '<c-a>', ':Alpha<cr>', opts)
 
+-- telescope
+local telescope_status, builtin = pcall(require, 'telescope.builtin')
+
+if not telescope_status then
+  return
+end
+
+keymap('n', '<leader>ff', builtin.find_files, {})
+keymap('n', '<leader>fg', builtin.live_grep, {})
+keymap('n', '<leader>fb', builtin.buffers, {})
+keymap('n', '<leader>fh', builtin.help_tags, {})
 
 -- toggle filetree
 keymap('n', '<c-n>', ':NvimTreeFindFileToggle<cr>', opts)
 
-local function lspmap(key, map)
+local function pluginmap(key, map)
   keymap('n', key, map, opts)
 end
 
-lspmap('gd', ':lua vim.lsp.buf.definition()<cr>')
-lspmap('gD', ':lua vim.lsp.buf.declaration()<cr>')
-lspmap('gi', ':lua vim.lsp.buf.implementation()<cr>')
-lspmap('gw', ':lua vim.lsp.buf.document_symbol()<cr>')
-lspmap('gw', ':lua vim.lsp.buf.workspace_symbol()<cr>')
-lspmap('gr', ':lua vim.lsp.buf.references()<cr>')
-lspmap('gt', ':lua vim.lsp.buf.type_definition()<cr>')
-lspmap('K', ':lua vim.lsp.buf.hover()<cr>')
-lspmap('<c-k>', ':lua vim.lsp.buf.signature_help()<cr>')
-lspmap('<leader>af', ':lua vim.lsp.buf.code_action()<cr>')
-lspmap('<F2>', ':lua vim.lsp.buf.rename()<cr>')
+pluginmap('gd', ':lua vim.lsp.buf.definition()<cr>')
+pluginmap('gD', ':lua vim.lsp.buf.declaration()<cr>')
+pluginmap('gi', ':lua vim.lsp.buf.implementation()<cr>')
+pluginmap('gw', ':lua vim.lsp.buf.document_symbol()<cr>')
+pluginmap('gw', ':lua vim.lsp.buf.workspace_symbol()<cr>')
+pluginmap('gr', ':lua vim.lsp.buf.references()<cr>')
+pluginmap('gt', ':lua vim.lsp.buf.type_definition()<cr>')
+pluginmap('K', ':lua vim.lsp.buf.hover()<cr>')
+pluginmap('<c-k>', ':lua vim.lsp.buf.signature_help()<cr>')
+pluginmap('<leader>af', ':lua vim.lsp.buf.code_action()<cr>')
+pluginmap('<F2>', ':lua vim.lsp.buf.rename()<cr>')
 
 -- formatting
-lspmap('<A-F>', ':lua vim.lsp.buf.format()<cr>')
+pluginmap('<A-F>', ':lua vim.lsp.buf.format()<cr>')
