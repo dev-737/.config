@@ -8,6 +8,8 @@ require('filetree')
 require('treesitter')
 require('telescope_config')
 require('trouble_config')
+require('terminal')
+require('gitsigns_config')
 
 -- vim.opt.foldmethod = "expr"
 -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"

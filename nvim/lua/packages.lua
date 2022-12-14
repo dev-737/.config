@@ -1,7 +1,12 @@
 require('packer').startup(function()
   use 'wbthomason/packer.nvim'
+  -- color theme
   use 'catppuccin/nvim'
+  -- syntax highlight
   use 'nvim-treesitter/nvim-treesitter'
+  -- auto closing
+  use 'windwp/nvim-autopairs'
+  -- welcome screen on nvim startup
   use {
     'goolord/alpha-nvim',
     requires = { 'nvim-tree/nvim-web-devicons' },
@@ -9,20 +14,20 @@ require('packer').startup(function()
         require'alpha'.setup(require'alpha.themes.dashboard'.config)
     end
     }
-
+  -- terminal
+  use {"akinsho/toggleterm.nvim", tag = '*'}
+  -- editor tabs
+  use {'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}
   -- fuzzy finder
   use {'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { {'nvim-lua/plenary.nvim'} }}
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-
-  -- vecode lookin error/warning list
+  -- vscode lookin error/warning list
   use {"folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons"}
-
   -- cool UI for LSP hover stuff
   use({
     "glepnir/lspsaga.nvim",
     branch = "main",
   })
-
   use "williamboman/mason-lspconfig.nvim"
   use "williamboman/mason.nvim"
   use 'neovim/nvim-lspconfig'
@@ -37,7 +42,8 @@ require('packer').startup(function()
   use 'nvim-tree/nvim-web-devicons'
   use 'nvim-lualine/lualine.nvim'
   use 'rcarriga/nvim-notify'
-
+  -- Git
+  use 'lewis6991/gitsigns.nvim'
   -- vscode like icons for lsp-cmp
   use 'onsails/lspkind.nvim'
 end)
