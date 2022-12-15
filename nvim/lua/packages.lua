@@ -1,6 +1,7 @@
 require('packer').startup(function()
   use 'wbthomason/packer.nvim'
-  -- color theme
+  -- color scheme
+  use 'navarasu/onedark.nvim'
   use 'catppuccin/nvim'
   -- syntax highlight
   use 'nvim-treesitter/nvim-treesitter'
@@ -10,19 +11,19 @@ require('packer').startup(function()
   use {
     'goolord/alpha-nvim',
     requires = { 'nvim-tree/nvim-web-devicons' },
-    config = function ()
-        require'alpha'.setup(require'alpha.themes.dashboard'.config)
+    config = function()
+      require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
     end
-    }
+  }
   -- terminal
-  use {"akinsho/toggleterm.nvim", tag = '*'}
+  use { "akinsho/toggleterm.nvim", tag = '*' }
   -- editor tabs
-  use {'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}
+  use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
   -- fuzzy finder
-  use {'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { {'nvim-lua/plenary.nvim'} }}
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { { 'nvim-lua/plenary.nvim' } } }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   -- vscode lookin error/warning list
-  use {"folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons"}
+  use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
   -- cool UI for LSP hover stuff
   use({
     "glepnir/lspsaga.nvim",

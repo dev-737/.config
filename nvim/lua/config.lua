@@ -7,5 +7,5 @@ vim.opt.termguicolors = true
 
 vim.notify = require("notify") -- cool notifications :D
 
-vim.api.nvim_command 'colorscheme catppuccin'
-
+require('onedark').setup { style = 'darker' }
+vim.api.nvim_command 'colorscheme onedark'
