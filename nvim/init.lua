@@ -12,6 +12,9 @@ require('terminal')
 require('gitsigns_config')
 require('autopairs_config')
 require('bufferline_config')
+require('cmp_config')
+require('null-ls_config')
+require('comment_config')
 
 -- vim.opt.foldmethod = "expr"
 -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"

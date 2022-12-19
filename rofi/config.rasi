@@ -1,13 +1,17 @@
 configuration {
-  display-drun: "Applications:";
+  font: "Fantasque Sans Mono Nerd Font 13";
+  display-drun: " ";
   display-window: "Windows:";
   drun-display-format: "{icon} {name}";
-  font: "Fira Code Medium 12";
-  modi: "window,run,drun";
+  modi: "window,drun";
   show-icons: true;
   icon-theme: "Papirus";
-
+  drun {
+    fallback-icon: "application-x-addon";
+  }
 }
+
+
 
 @theme "/dev/null"
 
@@ -24,7 +28,7 @@ configuration {
 }
 
 window {
-  width: 40%;
+  width: 30%;
 }
 
 element {
@@ -47,8 +51,11 @@ element-icon {
 }
 
 entry {
+  placeholder: "Search...";
+  placeholder-color: @fg-alt;
   background-color: @bg-alt;
   padding: 12;
+  cursor: text;
   text-color: @fg;
 }
 

@@ -47,4 +47,7 @@ require('packer').startup(function()
   use 'lewis6991/gitsigns.nvim'
   -- vscode like icons for lsp-cmp
   use 'onsails/lspkind.nvim'
+  -- formatting and linting
+  use 'jose-elias-alvarez/null-ls.nvim'
+  use "numToStr/Comment.nvim"
 end)
