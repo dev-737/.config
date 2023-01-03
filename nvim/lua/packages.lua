@@ -41,13 +41,23 @@ require('packer').startup(function()
   use 'hrsh7th/vim-vsnip'
   use 'nvim-tree/nvim-tree.lua'
   use 'nvim-tree/nvim-web-devicons'
+  -- statusline
   use 'nvim-lualine/lualine.nvim'
+  -- cool notifications
   use 'rcarriga/nvim-notify'
+  -- github copilot 
+  use 'github/copilot.vim'
   -- Git
   use 'lewis6991/gitsigns.nvim'
   -- vscode like icons for lsp-cmp
   use 'onsails/lspkind.nvim'
   -- formatting and linting
   use 'jose-elias-alvarez/null-ls.nvim'
+  -- toggle comments
   use "numToStr/Comment.nvim"
+  -- highlight hex/rgb with colors
+  use 'NvChad/nvim-colorizer.lua'
+  -- highlight text occurences in buffer
+  use 'RRethy/vim-illuminate'
 end)
+

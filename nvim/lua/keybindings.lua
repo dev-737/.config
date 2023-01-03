@@ -31,6 +31,7 @@ local silentOpt = { silent = true, noremap = true }
 
 -- Lspsaga UIs
 pluginmap('gd', '<cmd>Lspsaga peek_definition<cr>', silentOpt)
+pluginmap('gr', '<cmd>Lspsaga lsp_finder<cr>')
 pluginmap('K', '<cmd>Lspsaga hover_doc<CR>', silentOpt)
 pluginmap('<F2>', '<cmd>Lspsaga rename<CR>', silentOpt)
 pluginmap('<leader>af', '<cmd>Lspsaga code_action<cr>', silentOpt)
@@ -39,7 +40,6 @@ pluginmap('gD', ':lua vim.lsp.buf.declaration()<cr>')
 pluginmap('gi', ':lua vim.lsp.buf.implementation()<cr>')
 pluginmap('gw', ':lua vim.lsp.buf.document_symbol()<cr>')
 pluginmap('gw', ':lua vim.lsp.buf.workspace_symbol()<cr>')
-pluginmap('gr', ':lua vim.lsp.buf.references()<cr>')
 pluginmap('gt', ':lua vim.lsp.buf.type_definition()<cr>')
 pluginmap('<c-k>', ':lua vim.lsp.buf.signature_help()<cr>')
 

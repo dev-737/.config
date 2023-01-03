@@ -15,7 +15,8 @@ require('bufferline_config')
 require('cmp_config')
 require('null-ls_config')
 require('comment_config')
-
+require('colorizer_config')
+require('highlight-text')
 -- vim.opt.foldmethod = "expr"
 -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 

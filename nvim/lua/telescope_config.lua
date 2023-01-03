@@ -7,7 +7,7 @@ end
 -- configure telescope
 telescope.setup({
   -- configure custom mappings
-  defaults = { file_ignore_patterns = {"node_modules"} }, -- using file_ignore_patterns makes search slow :(
+  defaults = { file_ignore_patterns = { "node_modules" } }, -- using file_ignore_patterns makes search slow :(
   extensions = {
     fzf = {
       fuzzy = true,

@@ -1,6 +1,18 @@
 GitKraken
+BraveSoftware/
+.org.chromium*
+discord/
 MongoDB Compass
 dconf/
 pulse/
 nvim/plugin/
 gh/
+GIMP/
+github-copilot/
+inkscape/
+mimeapps.list
+gtk-*/
+glib-*/
+nitrogen/
+yay/
+systemd/

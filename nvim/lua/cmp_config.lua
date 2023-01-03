@@ -2,8 +2,11 @@
 vim.api.nvim_set_hl(0, 'CmpItemMenu', { fg = '#343a45' }) -- C792EA
 
 -- Set up nvim-cmp.
-local cmp = require('cmp')
+local status, cmp = pcall(require, 'cmp')
 
+if not status then
+  return
+end
 
 local icons = {
   Text = "",
