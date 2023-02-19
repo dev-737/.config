@@ -5,6 +5,7 @@ if not status then
 end
 
 bufferline.setup {
+  highlights = require("catppuccin.groups.integrations.bufferline").get(),
   options = {
     offsets = {
       {

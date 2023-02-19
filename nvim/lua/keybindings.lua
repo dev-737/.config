@@ -21,7 +21,7 @@ keymap('n', '<leader>fb', builtin.buffers, {})
 keymap('n', '<leader>fh', builtin.help_tags, {})
 
 -- toggle filetree
-keymap('n', '<c-n>', '<cmd>NvimTreeFindFileToggle<cr>', opts)
+keymap('n', '<c-b>', '<cmd>NvimTreeFindFileToggle<cr>', opts)
 
 local function pluginmap(key, map, c_opts)
   keymap('n', key, map, c_opts or opts)

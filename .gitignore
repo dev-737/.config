@@ -16,3 +16,8 @@ glib-*/
 nitrogen/
 yay/
 systemd/
+Electron/
+Code/
+turborepo/
+ranger/plugins/
+procps/

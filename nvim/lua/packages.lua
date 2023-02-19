@@ -59,5 +59,12 @@ require('packer').startup(function()
   use 'NvChad/nvim-colorizer.lua'
   -- highlight text occurences in buffer
   use 'RRethy/vim-illuminate'
+  -- lsp progress in bottom 
+  use {
+    'j-hui/fidget.nvim',
+    config = function ()
+      require"fidget".setup{}
+    end
+  }
 end)
 
