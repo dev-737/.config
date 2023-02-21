@@ -17,6 +17,7 @@ require('null-ls_config')
 require('comment_config')
 require('colorizer_config')
 require('highlight-text')
+require('noice_config')
 -- vim.opt.foldmethod = "expr"
 -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 

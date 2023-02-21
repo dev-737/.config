@@ -5,7 +5,8 @@ vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.termguicolors = true
 
-vim.notify = require("notify") -- cool notifications :D
+-- cool notifications :D
+vim.notify = require("notify")
 
 -- require('onedark').setup { style = 'darker', transparent = true }
 
@@ -37,3 +38,4 @@ vim.cmd("hi IlluminatedWordRead gui=underline")
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+

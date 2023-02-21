@@ -6,7 +6,6 @@
 -- end
 local mason = require("mason")
 mason.setup()
-
 -- loading in lsp installer
 -- local lsp_status, lsp = pcall(require, "mason-lspconfig")
 
@@ -15,7 +14,7 @@ mason.setup()
 -- end
 local lsp = require("mason-lspconfig")
 lsp.setup({
-  ensure_installed = { 'sumneko_lua', 'rust_analyzer', 'tsserver' }
+  ensure_installed = { 'lua_ls', 'rust_analyzer', 'tsserver' }
 })
 
 -- Set up lspconfig.
@@ -32,7 +31,7 @@ lspconfig.tsserver.setup { capabilities = capabilities }
 lspconfig.jsonls.setup { capabilities = capabilities }
 lspconfig.rust_analyzer.setup { capabilities = capabilities }
 lspconfig.prismals.setup { capabilities = capabilities }
-lspconfig.sumneko_lua.setup {
+lspconfig.lua_ls.setup {
   capabilities = capabilities,
   settings = { Lua = { diagnostics = { globals = { 'vim', 'use' } } } }
 }

@@ -36,12 +36,12 @@ pluginmap('K', '<cmd>Lspsaga hover_doc<CR>', silentOpt)
 pluginmap('<F2>', '<cmd>Lspsaga rename<CR>', silentOpt)
 pluginmap('<leader>af', '<cmd>Lspsaga code_action<cr>', silentOpt)
 
-pluginmap('gD', ':lua vim.lsp.buf.declaration()<cr>')
+pluginmap('gD', '<cmd>Lspsaga goto_definition<cr>')
 pluginmap('gi', ':lua vim.lsp.buf.implementation()<cr>')
 pluginmap('gw', ':lua vim.lsp.buf.document_symbol()<cr>')
 pluginmap('gw', ':lua vim.lsp.buf.workspace_symbol()<cr>')
 pluginmap('gt', ':lua vim.lsp.buf.type_definition()<cr>')
-pluginmap('<c-k>', ':lua vim.lsp.buf.signature_help()<cr>')
+pluginmap('<c-K>', ':lua vim.lsp.buf.signature_help()<cr>')
 
 -- formatting
 pluginmap('<A-F>', '<cmd>:lua vim.lsp.buf.format()<cr>')

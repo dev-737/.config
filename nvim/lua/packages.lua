@@ -15,10 +15,11 @@ require('packer').startup(function()
       require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
     end
   }
+  use 'nvim-tree/nvim-web-devicons'
   -- terminal
   use { "akinsho/toggleterm.nvim", tag = '*' }
   -- editor tabs
-  use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
+  use { 'akinsho/bufferline.nvim', requires = 'nvim-tree/nvim-web-devicons' }
   -- fuzzy finder
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { { 'nvim-lua/plenary.nvim' } } }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
@@ -40,11 +41,20 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
   use 'nvim-tree/nvim-tree.lua'
-  use 'nvim-tree/nvim-web-devicons'
+  -- ui component
+  use 'MunifTanjim/nui.nvim'
   -- statusline
   use 'nvim-lualine/lualine.nvim'
   -- cool notifications
   use 'rcarriga/nvim-notify'
+  -- ui for cmd line
+  use({
+  "folke/noice.nvim",
+  requires = {
+    "MunifTanjim/nui.nvim",
+    "rcarriga/nvim-notify",
+    }
+})
   -- github copilot 
   use 'github/copilot.vim'
   -- Git
