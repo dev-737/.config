@@ -14,20 +14,19 @@ mason.setup()
 -- end
 local lsp = require("mason-lspconfig")
 lsp.setup({
-  ensure_installed = { 'lua_ls', 'rust_analyzer', 'tsserver' }
+  ensure_installed = { 'clangd', 'lua_ls', 'rust_analyzer', 'tsserver' }
 })
 
--- Set up lspconfig.
--- local lspconfig_status, lspconfig = pcall(require, 'lspconfig')
-
--- if not lspconfig_status then
---  return
--- end
-
-local lspconfig = require("lspconfig")
+local lspconfig_status, lspconfig = pcall(require, 'lspconfig')
+if not lspconfig_status then return end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local clangd_capabilities = capabilities;
+clangd_capabilities.offsetEncoding = "utf-8"
+
+-- Setup each server
 lspconfig.tsserver.setup { capabilities = capabilities }
+lspconfig.clangd.setup { capabilities = clangd_capabilities}
 lspconfig.jsonls.setup { capabilities = capabilities }
 lspconfig.rust_analyzer.setup { capabilities = capabilities }
 lspconfig.prismals.setup { capabilities = capabilities }

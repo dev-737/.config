@@ -4,6 +4,8 @@ if not telescope_setup then
   return
 end
 
+telescope.load_extension("notify")
+
 -- configure telescope
 telescope.setup({
   -- configure custom mappings
