@@ -5,6 +5,8 @@ if not telescope_setup then
 end
 
 telescope.load_extension("notify")
+telescope.load_extension("advanced_git_search")
+
 
 -- configure telescope
 telescope.setup({

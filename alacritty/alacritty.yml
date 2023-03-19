@@ -2,7 +2,7 @@ window:
   # opacity: 0.95
   padding:
    x: 8
-   y: 3
+   y: 3 
 
 scrolling:
   history: 1000
@@ -21,12 +21,8 @@ draw_bold_text_with_bright_colors: true
 # All imports must either be absolute paths starting with `/`, or paths relative
 # to the user's home directory starting with `~/`.
 import:
-import:
-  # uncomment the flavour you want below:
-  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
- # - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
+   # - ~/.config/alacritty/themes/one_dark.yml
+   - ~/.config/alacritty/themes/catppuccin-mocha.yml
 #  - /path/to/alacritty.yml
 
 # Any items in the `env` entry below will be added as

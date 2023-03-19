@@ -1,8 +1,5 @@
 local status, illuminate = pcall(require, 'illuminate')
-
-if not status then
-  return
-end
+if not status then return end
 
 -- default configurations
 illuminate.configure({

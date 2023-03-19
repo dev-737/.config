@@ -1,25 +1,17 @@
--- loading in mason
--- local mason_status, mason = pcall(require, "mason")
-
--- if not mason_status then
---  return
--- end
-local mason = require("mason")
-mason.setup()
--- loading in lsp installer
--- local lsp_status, lsp = pcall(require, "mason-lspconfig")
-
--- if not lsp_status then
---  return
--- end
-local lsp = require("mason-lspconfig")
-lsp.setup({
-  ensure_installed = { 'clangd', 'lua_ls', 'rust_analyzer', 'tsserver' }
-})
-
+local mason_status, mason = pcall(require, "mason")
+local lsp_status, lsp = pcall(require, "mason-lspconfig")
 local lspconfig_status, lspconfig = pcall(require, 'lspconfig')
+
+if not mason_status then return end
+if not lsp_status then return end
 if not lspconfig_status then return end
 
+-- loading in mason
+mason.setup()
+-- loading in lsp installer
+lsp.setup { ensure_installed = { 'clangd', 'lua_ls', 'rust_analyzer', 'tsserver' } }
+
+-- Setup capabilities to include nvim-cmp
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local clangd_capabilities = capabilities;
 clangd_capabilities.offsetEncoding = "utf-8"

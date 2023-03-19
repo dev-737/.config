@@ -1,8 +1,6 @@
 local status, tree = pcall(require, 'nvim-tree')
+if not status then return end
 
-if not status then
-  return
-end
 
 local options = {
   view = {

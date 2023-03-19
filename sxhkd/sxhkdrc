@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-        alacritty --class=Falacritty 
+        alacritty # --class=Falacritty 
 
 # program launcher
 super + @space
