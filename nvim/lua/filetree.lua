@@ -13,9 +13,9 @@ local options = {
     -- highlight_git = true,
     -- highlight_opened_files = "none",
     --
-    -- indent_markers = {
-    --   enable = false,
-    -- },
+    indent_markers = {
+      enable = true,
+    },
 
     icons = {
       show = {

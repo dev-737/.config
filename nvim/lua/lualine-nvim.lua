@@ -1,14 +1,11 @@
 local lualine_status, lualine = pcall(require, 'lualine')
-
-if not lualine_status then
-  return
-end
+if not lualine_status then return end
 
 lualine.setup {
   options = {
     icons_enabled = true,
-    -- theme = "catppuccin",
-    theme = "tokyonight",
+    theme = "catppuccin",
+    -- theme = "tokyonight",
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {
