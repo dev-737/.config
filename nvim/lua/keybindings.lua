@@ -69,3 +69,8 @@ pluginmap('<A-p>', '<Cmd>BufferLineTogglePin<CR>', silentOpt)
 pluginmap('<A-w>', '<Cmd>BufferLinePickClose<CR>', silentOpt)
 -- Magic buffer-picking mode
 pluginmap('<C-p>', '<Cmd>BufferLinePick<CR>', silentOpt)
+
+-- diffview
+pluginmap('<leader>g', '<Cmd>DiffviewOpen<CR>', silentOpt)
+pluginmap('<leader>gg', '<Cmd>DiffviewClose<CR>', silentOpt)
+pluginmap('<leader>gf', '<Cmd>DiffviewToggleFiles<CR>', silentOpt)

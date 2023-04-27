@@ -6,10 +6,12 @@ local options = {
   view = {
     -- adaptive_size = true,
     -- side = "left",
-    -- width = 25,
-    hide_root_folder = true, -- disable path on top of filetree
+    -- width = 25 
+
   },
   renderer = {
+    -- disable path on top of filetree
+    root_folder_label = false,
     -- highlight_git = true,
     -- highlight_opened_files = "none",
     --

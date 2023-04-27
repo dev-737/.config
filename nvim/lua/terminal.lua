@@ -7,6 +7,6 @@ toggleterm.setup({
   size = 20,
   open_mapping = [[<A-`>]],
   hide_numbers = true,
-  shade_terminals = true,
+  shade_terminals = false,
   direction = 'horizontal'
 })

@@ -21,7 +21,7 @@ require("lazy").setup({
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    priority = 900,
+    enabled = false,
     config = function()
       local catppuccin = require("catppuccin")
       catppuccin.setup({
@@ -36,13 +36,20 @@ require("lazy").setup({
         },
       })
 
-      catppuccin.load("mocha")
+      catppuccin.load("macchiato")
     end,
   },
-  { "navarasu/onedark.nvim",                        name = "onedark", lazy = true },
+  {
+    "navarasu/onedark.nvim",
+    name = "onedark",
+    config = function()
+      local onedark = require("onedark")
+      onedark.load()
+    end,
+  },
   {
     "folke/tokyonight.nvim",
-    lazy = true,  -- make sure we load this during startup if it is your main colorscheme
+    lazy = true, -- make sure we load this during startup if it is your main colorscheme
     -- priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- load the colorscheme here
@@ -141,21 +148,21 @@ require("lazy").setup({
       { "nvim-lua/plenary.nvim" },
     },
   },
-  { "nvim-telescope/telescope-fzf-native.nvim", build = "make", lazy = true },
+  { "nvim-telescope/telescope-fzf-native.nvim",     build = "make", lazy = true },
   -- filetree
   {
     "nvim-tree/nvim-tree.lua",
     lazy = true,
   },
   -- ui component
-  { "MunifTanjim/nui.nvim",                     lazy = true },
+  { "MunifTanjim/nui.nvim", lazy = true },
   -- statusline
   {
     "nvim-lualine/lualine.nvim",
     lazy = true,
   },
   -- github copilot
-  { "github/copilot.vim", lazy = true },
+  { "github/copilot.vim",   lazy = true },
   -- Git
   {
     "lewis6991/gitsigns.nvim",
@@ -182,7 +189,7 @@ require("lazy").setup({
     lazy = true,
   },
   -- lsp progress in bottom
-  { "j-hui/fidget.nvim",  lazy = true },
+  { "j-hui/fidget.nvim", lazy = true },
   -- i dont even know
   { "tpope/vim-fugitive" },
   -- git blame and more (like vscode git view)
@@ -202,5 +209,24 @@ require("lazy").setup({
   {
     "lukas-reineke/indent-blankline.nvim",
     lazy = true,
+  },
+  -- vscode like git sidebar, suepr useful
+  { "sindrets/diffview.nvim" },
+  -- displays keybindings in dashboard
+  { "folke/which-key.nvim" },
+  -- the best git project commit diffbar/diffview
+  { "sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim" },
+  -- vsocde-like top symbols winbar
+  {
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    version = "*",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
+    opts = {
+      -- configurations go here
+    },
   },
 })

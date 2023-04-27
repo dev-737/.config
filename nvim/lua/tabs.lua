@@ -5,14 +5,26 @@ if not status then
 end
 
 bufferline.setup {
-  highlights = require("catppuccin.groups.integrations.bufferline").get(),
+  -- highlights = require("catppuccin.groups.integrations.bufferline").get(),
   options = {
     offsets = {
       {
         filetype = "NvimTree",
         text = "File Explorer",
         highlight = "Directory",
-        separator = false -- use a "true" to enable the default, or set your own character
+        separator = true -- use a "true" to enable the default, or set your own character
+      },
+      {
+        filetype = "DiffviewFiles",
+        text = "Source Control",
+        highlight = "Directory",
+        separator = true -- use a "true" to enable the default, or set your own character
+      },
+      {
+        filetype = "lspsagaoutline",
+        text = "Buffer Symbols",
+        highlight = "Directory",
+        separator = true -- use a "true" to enable the default, or set your own character
       }
     },
     -- separator_style = "slant",
