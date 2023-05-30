@@ -6,7 +6,7 @@ keymap('n', '<c-j>', '<c-w>j', opts)
 keymap('n', '<c-h>', '<c-w>h', opts)
 keymap('n', '<c-k>', '<c-w>k', opts)
 keymap('n', '<c-l>', '<c-w>l', opts)
-keymap('n', '<c-a>', ':Dashboard<cr>', opts)
+keymap('n', '<c-a>', '<cmd>Dashboard<cr>', opts)
 
 -- telescope
 local telescope_status, builtin = pcall(require, 'telescope.builtin')

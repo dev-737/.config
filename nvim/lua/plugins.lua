@@ -15,8 +15,10 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 require("lazy").setup({
-  defaults = { lazy = true },
   checker = { enabled = true },
+  change_detection = {
+    notify = false,
+  },
   -- color scheme
   {
     "catppuccin/nvim",
@@ -39,17 +41,32 @@ require("lazy").setup({
       catppuccin.load("macchiato")
     end,
   },
+  -- {
+  --   "navarasu/onedark.nvim",
+  --   name = "onedark",
+  --   enabled = true,
+  --   config = function()
+  --     local onedark = require("onedark")
+  --     onedark.load()
+  --   end,
+  -- },
+  -- {
+  --   "joshdick/onedark.vim",
+  --   name = "onedark.vim",
+  --   config = function ()
+  --     vim.cmd('colorscheme onedark')
+  --   end
+  -- },
   {
-    "navarasu/onedark.nvim",
-    name = "onedark",
-    config = function()
-      local onedark = require("onedark")
-      onedark.load()
-    end,
+    "rmehri01/onenord.nvim",
+    config = function ()
+      require('onenord').setup()
+    end
   },
   {
     "folke/tokyonight.nvim",
-    lazy = true, -- make sure we load this during startup if it is your main colorscheme
+    enabled = false,
+    -- lazy = true, -- make sure we load this during startup if it is your main colorscheme
     -- priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- load the colorscheme here
@@ -61,24 +78,29 @@ require("lazy").setup({
   {
     "VonHeikemen/lsp-zero.nvim",
     lazy = true,
-    branch = "v1.x",
+    branch = "v2.x",
     dependencies = {
       -- LSP Support
-      { "neovim/nvim-lspconfig" },          -- Required
-      { "williamboman/mason.nvim" },        -- Optional
-      { "williamboman/mason-lspconfig.nvim" }, -- Optional
+      {'neovim/nvim-lspconfig'},             -- Required
+      {'williamboman/mason-lspconfig.nvim'}, -- Optional
+      {                                      -- Optional
+        'williamboman/mason.nvim',
+        build = function()
+          pcall(vim.cmd, 'MasonUpdate')
+        end,
+      },
 
       -- Autocompletion
-      { "hrsh7th/nvim-cmp" },      -- Required
-      { "hrsh7th/cmp-nvim-lsp" },  -- Required
-      { "hrsh7th/cmp-buffer" },    -- Optional
-      { "hrsh7th/cmp-path" },      -- Optional
+      { "hrsh7th/nvim-cmp" },         -- Required
+      { "hrsh7th/cmp-nvim-lsp" },     -- Required
+      { "L3MON4D3/LuaSnip" },         -- Required
+      { "hrsh7th/cmp-buffer" },       -- Optional
+      { "hrsh7th/cmp-path" },         -- Optional
       { "saadparwaiz1/cmp_luasnip" }, -- Optional
-      { "hrsh7th/cmp-cmdline" },
-      { "hrsh7th/cmp-nvim-lua" },  -- Optional
+      { "hrsh7th/cmp-cmdline" },      -- Optional
+      { "hrsh7th/cmp-nvim-lua" },     -- Optional
 
       -- Snippets
-      { "L3MON4D3/LuaSnip" },          -- Required
       { "rafamadriz/friendly-snippets" }, -- Optional
     },
   },
@@ -91,7 +113,7 @@ require("lazy").setup({
     lazy = true,
   },
   -- vscode like icons for lsp-cmp
-  "onsails/lspkind.nvim",
+  -- "onsails/lspkind.nvim",
   -- vscode lookin error/warning list
   {
     "folke/trouble.nvim",
@@ -142,7 +164,6 @@ require("lazy").setup({
   -- fuzzy finder
   {
     "nvim-telescope/telescope.nvim",
-    branch = "0.1.x",
     lazy = true,
     dependencies = {
       { "nvim-lua/plenary.nvim" },
@@ -161,8 +182,6 @@ require("lazy").setup({
     "nvim-lualine/lualine.nvim",
     lazy = true,
   },
-  -- github copilot
-  { "github/copilot.vim",   lazy = true },
   -- Git
   {
     "lewis6991/gitsigns.nvim",
@@ -190,14 +209,6 @@ require("lazy").setup({
   },
   -- lsp progress in bottom
   { "j-hui/fidget.nvim", lazy = true },
-  -- i dont even know
-  { "tpope/vim-fugitive" },
-  -- git blame and more (like vscode git view)
-  {
-    "aaronhallaert/advanced-git-search.nvim",
-    lazy = true,
-    dependencies = { "nvim-telescope/telescope.nvim" },
-  },
   -- Max charecter per line alert tool
   {
     "m4xshen/smartcolumn.nvim",
@@ -206,15 +217,14 @@ require("lazy").setup({
       disabled_filetypes = { "NvimTree", "lazy", "mason", "help", "text", "markdown", "dashboard" },
     },
   },
+  -- uh those things that help you know which scope you're inside
   {
     "lukas-reineke/indent-blankline.nvim",
     lazy = true,
   },
-  -- vscode like git sidebar, suepr useful
-  { "sindrets/diffview.nvim" },
-  -- displays keybindings in dashboard
-  { "folke/which-key.nvim" },
+
   -- the best git project commit diffbar/diffview
+  -- vscode like git sidebar, suepr useful
   { "sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim" },
   -- vsocde-like top symbols winbar
   {
@@ -229,4 +239,12 @@ require("lazy").setup({
       -- configurations go here
     },
   },
+  -- the thing that shows git blame
+  "tpope/vim-fugitive",
+  -- displays keybindings in dashboard
+  "folke/which-key.nvim",
+  -- matching brace colors
+   "HiPhish/nvim-ts-rainbow2",
+  -- github copilot
+  "github/copilot.vim",
 })

@@ -1,12 +1,4 @@
--- local status, treesitter pcall(require, 'nvim-treesitter.configs')
-
-local treesitter = require('nvim-treesitter.configs')
-
--- if not status then
---  return
--- end
-
-treesitter.setup {
+require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
   ensure_installed = { "typescript", "markdown", "markdown_inline", "prisma", "json" },
 
@@ -35,5 +27,10 @@ treesitter.setup {
   },
   indent = {
     enable = true,
+  },
+  rainbow =  {
+    enable = true,
+    query = 'rainbow-parens',
+    strategy = require('ts-rainbow').strategy.global,
   }
 }

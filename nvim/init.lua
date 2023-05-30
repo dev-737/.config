@@ -17,12 +17,13 @@ require('formatters')
 require('comment_config')
 require('colorizer_config')
 require('selection_highlight')
-require('notifications')
+-- require('cmdline_ui')
 require('lsp_load_notifications')
 require('dashboard_config')
-require('inline_errors')
+-- require('inline_errors')
 require('indentline')
 require('whichKey')
 require('diff')
+
 -- vim.opt.foldmethod = "expr"
 -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"

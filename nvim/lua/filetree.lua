@@ -4,15 +4,14 @@ if not status then return end
 
 local options = {
   view = {
-    -- adaptive_size = true,
-    -- side = "left",
-    -- width = 25 
-
+    adaptive_size = true,
+    side = "left",
+    width = 25
   },
   renderer = {
     -- disable path on top of filetree
     root_folder_label = false,
-    -- highlight_git = true,
+    highlight_git = true,
     -- highlight_opened_files = "none",
     --
     indent_markers = {
@@ -28,7 +27,8 @@ local options = {
       },
 
       glyphs = {
-        default = "",
+        -- default = "",
+        default = "",
         symlink = "",
         folder = {
           default = "",
@@ -41,11 +41,12 @@ local options = {
           arrow_closed = "",
         },
         git = {
-          unstaged = "✗",
+          unstaged = "", -- ●
+          -- unstaged = "✗",
           staged = "✓",
           unmerged = "",
           renamed = "➜",
-          untracked = "★",
+          untracked =  "★",
           deleted = "",
           ignored = "◌",
         },
