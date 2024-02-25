@@ -44,10 +44,11 @@ pluginmap('gt', ':lua vim.lsp.buf.type_definition()<cr>')
 pluginmap('<c-K>', ':lua vim.lsp.buf.signature_help()<cr>')
 
 -- formatting
-pluginmap('<A-F>', '<cmd>:lua vim.lsp.buf.format()<cr>')
+-- pluginmap('<A-F>', '<cmd>:lua vim.lsp.buf.format()<cr>')
+pluginmap('<A-F>', '<cmd>:LspZeroFormat<cr>')
 
 -- trouble panel
-pluginmap('tT', '<cmd>TroubleToggle<cr>')
+pluginmap('T', '<cmd>TroubleToggle<cr>')
 
 -- tabs
 -- Move to previous/next

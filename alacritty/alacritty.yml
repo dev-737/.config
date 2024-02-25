@@ -1,5 +1,5 @@
 window:
-  # opacity: 0.95
+  # opacity: 0.9
   padding:
    x: 8
    # y: 3 
@@ -22,8 +22,8 @@ draw_bold_text_with_bright_colors: true
 # All imports must either be absolute paths starting with `/`, or paths relative
 # to the user's home directory starting with `~/`.
 import:
-   - ~/.config/alacritty/themes/one_nord.yml
-   # - ~/.config/alacritty/themes/one_dark.yml
+   # - ~/.config/alacritty/themes/one_nord.yml
+   - ~/.config/alacritty/themes/one_dark.yml
    # - ~/.config/alacritty/themes/catppuccin-mocha.yml
 #  - /path/to/alacritty.yml
 

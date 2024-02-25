@@ -24,5 +24,5 @@ vim.cmd("set cursorline")
 -- Disable virtual_text since it's redundant due to lsp_lines.
 vim.diagnostic.config({
 -- since lsp_lines is disabled right now, I have enabled virtual_text
-  virtual_text = true,
+  virtual_text = false,
 })
