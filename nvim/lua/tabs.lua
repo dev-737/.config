@@ -7,6 +7,9 @@ end
 bufferline.setup {
   -- highlights = require("catppuccin.groups.integrations.bufferline").get(),
   options = {
+    indicator = {
+      style = 'underline',
+    },
     offsets = {
       {
         filetype = "NvimTree",

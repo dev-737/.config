@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-        alacritty # --class=Falacritty 
+        gnome-terminal # --class=Falacritty 
 
 # program launcher
 super + @space
@@ -122,3 +122,6 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+# disable middle click to scroll
+~button2
+    ;echo -n | xclip -in

@@ -1,5 +1,5 @@
--- fat cursor
-vim.opt.guicursor = ""
+-- -- fat cursor
+-- vim.opt.guicursor = ""
 vim.opt.signcolumn = "yes"
 
 vim.opt.termguicolors = true
@@ -23,6 +23,6 @@ vim.cmd("set cursorline")
 
 -- Disable virtual_text since it's redundant due to lsp_lines.
 vim.diagnostic.config({
--- since lsp_lines is disabled right now, I have enabled virtual_text
-  virtual_text = false,
+	-- since lsp_lines is disabled right now, I have enabled virtual_text
+	virtual_text = false,
 })
