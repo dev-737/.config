@@ -22,7 +22,6 @@ vim.cmd("set cursorline")
 -- vim.cmd("hi IlluminatedWordRead gui=underline")
 
 -- Disable virtual_text since it's redundant due to lsp_lines.
-vim.diagnostic.config({
-	-- since lsp_lines is disabled right now, I have enabled virtual_text
-	virtual_text = false,
-})
+-- vim.diagnostic.config({
+-- 	virtual_text = false,
+-- })

@@ -14,7 +14,8 @@ bspc config gapless_monocle      true
 
 # colors
 # bspc config focused_border_color "#F0C674"
-bspc config focused_border_color "#89b4fa"
+# bspc config focused_border_color "#89b4fa"
+bspc config focused_border_color "#b4befe"
 bspc config focus_follows_pointer true
 
 # rules for applications to be spawned on specific desktops

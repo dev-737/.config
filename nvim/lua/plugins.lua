@@ -22,27 +22,27 @@ require("lazy").setup({
   },
 
   -- color scheme
-  -- {
-  --   "catppuccin/nvim",
-  --   name = "catppuccin",
-  --   enabled = false,
-  --   config = function()
-  --     local catppuccin = require("catppuccin")
-  --     catppuccin.setup({
-  --       integrations = {
-  --         cmp = true,
-  --         gitsigns = true,
-  --         nvimtree = true,
-  --         telescope = true,
-  --         notify = true,
-  --         noice = true,
-  --         mason = true,
-  --       },
-  --     })
-  --
-  --     catppuccin.load("macchiato")
-  --   end,
-  -- },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000, -- Ensure it loads first
+    config = function()
+      local catppuccin = require("catppuccin")
+      catppuccin.setup({
+        integrations = {
+          cmp = true,
+          gitsigns = true,
+          nvimtree = true,
+          telescope = true,
+          notify = true,
+          noice = true,
+          mason = true,
+        },
+      })
+
+      catppuccin.load("macchiato")
+    end,
+  },
   -- {
   --   "navarasu/onedark.nvim",
   --   name = "onedark",
@@ -77,14 +77,14 @@ require("lazy").setup({
   --     vim.cmd("colorscheme tokyonight")
   --   end,
   -- },
-  {
-    "shaunsingh/nord.nvim",
-    priority = 1000, -- Ensure it loads first
-    name = "nord.nvim",
-    config = function()
-      vim.cmd("colorscheme nord")
-    end,
-  },
+  -- {
+  --   "shaunsingh/nord.nvim",
+  --   priority = 1000, -- Ensure it loads first
+  --   name = "nord.nvim",
+  --   config = function()
+  --     vim.cmd("colorscheme nord")
+  --   end,
+  -- },
   -- syntax highlight
   {
     "nvim-treesitter/nvim-treesitter",
@@ -100,29 +100,28 @@ require("lazy").setup({
       {
         "williamboman/mason-lspconfig.nvim",
       }, -- Optional
-      {  -- Optional
+      { -- Optional
         "williamboman/mason.nvim",
         build = function()
           pcall(vim.cmd, "MasonUpdate")
         end,
       },
-
       -- Autocompletion
-      { "hrsh7th/nvim-cmp" },         -- Required
-      { "hrsh7th/cmp-nvim-lsp" },     -- Required
-      { "L3MON4D3/LuaSnip" },         -- Required
-      { "hrsh7th/cmp-path" },         -- Optional
+      { "hrsh7th/nvim-cmp" },      -- Required
+      { "hrsh7th/cmp-nvim-lsp" },  -- Required
+      { "L3MON4D3/LuaSnip" },      -- Required
+      { "hrsh7th/cmp-path" },      -- Optional
       { "saadparwaiz1/cmp_luasnip" }, -- Optional
-      { "hrsh7th/cmp-cmdline" },      -- Optional
-      { "hrsh7th/cmp-nvim-lua" },     -- Optional
-      { "hrsh7th/cmp-buffer" },       -- Optional
+      { "hrsh7th/cmp-cmdline" },   -- Optional
+      { "hrsh7th/cmp-nvim-lua" },  -- Optional
+      { "hrsh7th/cmp-buffer" },    -- Optional
 
       -- Snippets
       { "rafamadriz/friendly-snippets" }, -- Optional
     },
   },
   -- better inline errors
-  { "https://git.sr.ht/~whynothugo/lsp_lines.nvim", event = "VeryLazy" },
+  -- { "https://git.sr.ht/~whynothugo/lsp_lines.nvim", event = "VeryLazy" },
   -- cool UI for LSP
   {
     "glepnir/lspsaga.nvim",
@@ -188,14 +187,14 @@ require("lazy").setup({
       { "nvim-lua/plenary.nvim" },
     },
   },
-  { "nvim-telescope/telescope-fzf-native.nvim",     build = "make",    lazy = true },
+  { "nvim-telescope/telescope-fzf-native.nvim", build = "make", lazy = true },
   -- filetree
   {
     "nvim-tree/nvim-tree.lua",
     event = "VeryLazy",
   },
   -- ui component
-  { "MunifTanjim/nui.nvim", lazy = true },
+  { "MunifTanjim/nui.nvim",                     lazy = true },
   -- statusline
   {
     "nvim-lualine/lualine.nvim",
@@ -215,6 +214,9 @@ require("lazy").setup({
   {
     "numToStr/Comment.nvim",
     event = "VeryLazy",
+    config = function()
+      require("Comment").setup()
+    end,
   },
   -- highlight hex/rgb with colors
   {
@@ -285,13 +287,8 @@ require("lazy").setup({
     "github/copilot.vim",
     event = "VeryLazy",
   },
-  -- discord rpc
-  {
-    "andweeb/presence.nvim",
-    event = "VeryLazy",
-  },
   -- neovim config completion
-  { "folke/neodev.nvim",    opts = {},  event = "VeryLazy" },
+  { "folke/neodev.nvim", opts = {}, event = "VeryLazy" },
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -302,5 +299,14 @@ require("lazy").setup({
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
     },
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && yarn install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
   },
 })
