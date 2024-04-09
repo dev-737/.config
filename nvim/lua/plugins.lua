@@ -97,7 +97,7 @@ require("lazy").setup({
     dependencies = {
       -- LSP Support
       { "neovim/nvim-lspconfig" }, -- Required
-      {
+{
         "williamboman/mason-lspconfig.nvim",
       }, -- Optional
       { -- Optional

@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-        gnome-terminal # --class=Falacritty 
+        tilix # --class=Falacritty 
 
 # program launcher
 super + @space
@@ -15,8 +15,10 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 # screenshots
+# maim -s --format png ~/Pictures/Screenshots/$(date +%s).png /dev/stdout | xclip -selection clipboard -t image/png -i
 super + shift + s
-        maim -s ~/Pictures/Screenshots/$(date +%s).png
+        maim -s --format png  /dev/stdout | xclip -selection clipboard -t image/png -i
+
 #
 # bspwm hotkeys
 #
@@ -122,6 +124,7 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
 # disable middle click to scroll
 ~button2
     ;echo -n | xclip -in
