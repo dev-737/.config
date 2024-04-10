@@ -29,6 +29,7 @@ require("lazy").setup({
     config = function()
       local catppuccin = require("catppuccin")
       catppuccin.setup({
+        transparent_background = true,
         integrations = {
           cmp = true,
           gitsigns = true,
@@ -97,7 +98,7 @@ require("lazy").setup({
     dependencies = {
       -- LSP Support
       { "neovim/nvim-lspconfig" }, -- Required
-{
+      {
         "williamboman/mason-lspconfig.nvim",
       }, -- Optional
       { -- Optional
@@ -288,7 +289,7 @@ require("lazy").setup({
     event = "VeryLazy",
   },
   -- neovim config completion
-  { "folke/neodev.nvim", opts = {}, event = "VeryLazy" },
+  { "folke/neodev.nvim",      opts = {}, event = "VeryLazy" },
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -309,4 +310,5 @@ require("lazy").setup({
     end,
     ft = { "markdown" },
   },
+  { "f-person/git-blame.nvim" },
 })
